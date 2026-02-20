@@ -9,11 +9,11 @@
 
 static const char *TAG = "SOAL_3";
 
-// Shared Data Buffer & Mutex
+
 int sharedDataBuffer[SENSOR_COUNT];
 SemaphoreHandle_t bufferMutex;
 
-// Task A: Sensor
+
 void sensor_task(void *pvParameters) {
     while (1) {
         int temp_data[SENSOR_COUNT];
@@ -32,7 +32,7 @@ void sensor_task(void *pvParameters) {
     }
 }
 
-// Task B: Communication
+
 void communication_task(void *pvParameters) {
     while (1) {
         int data_to_send[SENSOR_COUNT];
@@ -56,7 +56,7 @@ void communication_task(void *pvParameters) {
     }
 }
 
-// Wajib pakai extern "C" karena file Anda .cpp
+
 extern "C" void app_main(void) {
     ESP_LOGI(TAG, "=== Sistem Dimulai ===");
 
